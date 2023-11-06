@@ -1,14 +1,7 @@
-import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
+// Jonas
 public class Game {
 
     static void run(){
@@ -51,7 +44,6 @@ public class Game {
                 System.out.println(Player.Instance().curDirection);
             }
 
-            Console.Clear();
             System.out.println("GAME OVER");
         });
 

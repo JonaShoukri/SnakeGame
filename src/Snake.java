@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// Jonas
 public class Snake {
     static ArrayList<Position> position;
     static String curDirection;

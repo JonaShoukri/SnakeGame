@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+//Jonas
 public class Player extends Snake{
     static int score;
     private static final Player instance = new Player();

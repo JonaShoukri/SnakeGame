@@ -1,5 +1,6 @@
 import java.util.Random;
 
+//Jonas
 public class Apple {
     static Position position;
     private static Apple instance = new Apple();
