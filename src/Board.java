@@ -9,7 +9,7 @@ public class Board {
     private Board(){
         // creating a field of 101 columns and 101 rows
         bottomLeft = new Position(0, 0);
-        topRight = new Position(31, 31);
+        topRight = new Position(16, 16);
     }
 
     public static Board Instance(){return instance;}

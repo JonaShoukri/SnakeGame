@@ -8,6 +8,8 @@ public class Position {
         this.y = y;
     }
 
+    // we ran into issues when comparing positions due to the fact that the == operator was comparing the
+    // memory location instead of the values inside so we override the equals as seen below:
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

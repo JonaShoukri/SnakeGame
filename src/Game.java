@@ -16,9 +16,13 @@ public class Game {
                 }
 
                 // check if player ate himself
-                HashSet<Position> positionSet = new HashSet<>(Player.Instance().position);
-                if (Player.Instance().position.size() > positionSet.size()){
-                    break;
+                for (int index = 1; index < Player.Instance().position.size(); index++)
+                {
+                    if(Player.Instance().position.get(index).x == Player.Instance().position.get(0).x && Player.Instance().position.get(index).y == Player.Instance().position.get(0).y)
+                    {
+                        System.exit(0);
+                    }
+
                 }
 
                 // check if player ate the apple and if so regenerate the apples location
@@ -41,12 +45,13 @@ public class Game {
                     throw new RuntimeException(e);
                 }
 
-                System.out.println(Player.Instance().curDirection);
+                System.out.println(Apple.Instance().position.x + ", " + Apple.Instance().position.y);
             }
 
             System.out.println("GAME OVER");
         });
 
+        // handle user input and change Snake/Player direction accordingly
         Thread detectUserInput = new Thread(() -> {
             while (true){
                 char input;

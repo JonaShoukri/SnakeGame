@@ -5,7 +5,7 @@ public class Player extends Snake{
     static int score;
     private static final Player instance = new Player();
     private Player(){
-        super(new ArrayList<Position>(), "up", 3);
+        super(new ArrayList<Position>(), "up", 1);
 
         //setting the snake's init position (head in the middle of the field)
         Position startPosition = new Position((Board.topRight.x / 2) + 1, (Board.topRight.y / 2) + 1);
