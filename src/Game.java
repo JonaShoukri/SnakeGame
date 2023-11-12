@@ -44,10 +44,7 @@ public class Game {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-
-                System.out.println(Apple.Instance().position.x + ", " + Apple.Instance().position.y);
             }
-
             System.out.println("GAME OVER");
         });
 
