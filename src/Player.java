@@ -3,7 +3,7 @@ import java.util.ArrayList;
 //Jonas
 public class Player extends Snake{
     static int score;
-    private static final Player instance = new Player();
+    private static Player instance = new Player();
     private Player(){
         super(new ArrayList<Position>(), "up", 1);
 
@@ -22,4 +22,8 @@ public class Player extends Snake{
     }
 
     public static Player Instance(){ return instance; }
+
+    public static void reset(){
+        instance = new Player();
+    }
 }

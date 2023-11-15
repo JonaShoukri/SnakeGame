@@ -3,15 +3,17 @@ import java.util.HashSet;
 
 // Jonas
 public class Game {
-
+    static boolean keepRunnning = true;
     static void run(){
         Thread plotting = new Thread(() -> {
-            while (true){
+            while (keepRunnning){
                 //check if player is still on the board
                 if (Player.Instance().position.get(0).y >= Board.Instance().topRight.y || Player.Instance().position.get(0).x >= Board.Instance().topRight.x){
+                    keepRunnning = false;
                     break;
                 }
                 if (Player.Instance().position.get(0).y <= Board.Instance().bottomLeft.y || Player.Instance().position.get(0).x <= Board.Instance().bottomLeft.x){
+                    keepRunnning = false;
                     break;
                 }
 
@@ -20,7 +22,8 @@ public class Game {
                 {
                     if(Player.Instance().position.get(index).x == Player.Instance().position.get(0).x && Player.Instance().position.get(index).y == Player.Instance().position.get(0).y)
                     {
-                        System.exit(0);
+                        keepRunnning = false;
+                        break;
                     }
 
                 }
@@ -45,12 +48,11 @@ public class Game {
                     throw new RuntimeException(e);
                 }
             }
-            System.out.println("GAME OVER");
+            Console.Clear();
         });
 
-        // handle user input and change Snake/Player direction accordingly
         Thread detectUserInput = new Thread(() -> {
-            while (true){
+            while (keepRunnning){
                 char input;
 
                 try {
@@ -79,5 +81,16 @@ public class Game {
 
         plotting.start();
         detectUserInput.start();
+        try {
+            plotting.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static void resetGame(){
+        Player.Instance().reset();
+        Apple.Instance().reset();
+        keepRunnning = true;
     }
 }

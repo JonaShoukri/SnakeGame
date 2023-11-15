@@ -32,4 +32,8 @@ public class Apple {
 
         position = newPosition;
     }
+
+    public static void reset(){
+        instance = new Apple();
+    }
 }
